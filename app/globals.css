@@ -1,0 +1,332 @@
+@import "tailwindcss";
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+  --background: #f7f2e8;
+  --foreground: #171613;
+
+  --muted: #716b61;
+  --gold: #b08d57;
+  --cream: #f7f2e8;
+  --dark: #171613;
+  --white: #ffffff;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background: var(--background);
+  color: var(--foreground);
+
+  font-family: var(--font-manrope), sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--gold);
+  color: white;
+}
+
+/* =========================================================
+   SAGAR DISPLAY FONT
+========================================================= */
+
+.font-display {
+  font-family: var(--font-cormorant), serif;
+}
+
+/* =========================================================
+   MOBILE SCROLLBAR
+========================================================= */
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================================================
+   HERO IMAGE SLIDESHOW
+=========================================================
+
+   4 images
+   5 seconds per image
+   20 seconds total
+
+========================================================= */
+
+.sagar-slide {
+  opacity: 0;
+
+  transform: scale(1.045);
+
+  animation-name: sagarImageShow;
+  animation-duration: 20s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+
+  will-change: opacity, transform;
+}
+
+/* Image 1 */
+
+.sagar-slide-1 {
+  animation-delay: 0s;
+}
+
+/* Image 2 */
+
+.sagar-slide-2 {
+  animation-delay: 5s;
+}
+
+/* Image 3 */
+
+.sagar-slide-3 {
+  animation-delay: 10s;
+}
+
+/* Image 4 */
+
+.sagar-slide-4 {
+  animation-delay: 15s;
+}
+
+/* =========================================================
+   IMAGE ANIMATION
+========================================================= */
+
+@keyframes sagarImageShow {
+
+  /* Start hidden */
+
+  0% {
+    opacity: 0;
+    transform: scale(1.045);
+  }
+
+  /* Fade in */
+
+  4% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Stay visible */
+
+  24% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Fade out */
+
+  29% {
+    opacity: 0;
+    transform: scale(1.015);
+  }
+
+  /* Remain hidden */
+
+  100% {
+    opacity: 0;
+    transform: scale(1.045);
+  }
+}
+
+/* =========================================================
+   HERO CAPTIONS
+========================================================= */
+
+.sagar-caption {
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  animation-name: sagarCaptionShow;
+  animation-duration: 20s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+
+  will-change: opacity, transform;
+}
+
+.sagar-caption-1 {
+  animation-delay: 0s;
+}
+
+.sagar-caption-2 {
+  animation-delay: 5s;
+}
+
+.sagar-caption-3 {
+  animation-delay: 10s;
+}
+
+.sagar-caption-4 {
+  animation-delay: 15s;
+}
+
+@keyframes sagarCaptionShow {
+
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  4% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  24% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  29% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+/* =========================================================
+   SLIDESHOW INDICATORS
+========================================================= */
+
+.sagar-indicator {
+  display: block;
+
+  width: 16px;
+  height: 2px;
+
+  background: rgba(23, 22, 19, 0.15);
+
+  animation-name: sagarIndicator;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.sagar-indicator-1 {
+  animation-delay: 0s;
+}
+
+.sagar-indicator-2 {
+  animation-delay: 5s;
+}
+
+.sagar-indicator-3 {
+  animation-delay: 10s;
+}
+
+.sagar-indicator-4 {
+  animation-delay: 15s;
+}
+
+@keyframes sagarIndicator {
+
+  0% {
+    width: 16px;
+    background: rgba(23, 22, 19, 0.15);
+  }
+
+  1% {
+    width: 40px;
+    background: #b08d57;
+  }
+
+  24% {
+    width: 40px;
+    background: #b08d57;
+  }
+
+  25% {
+    width: 16px;
+    background: rgba(23, 22, 19, 0.15);
+  }
+
+  100% {
+    width: 16px;
+    background: rgba(23, 22, 19, 0.15);
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .sagar-slide,
+  .sagar-caption,
+  .sagar-indicator {
+    animation: none !important;
+  }
+
+  .sagar-slide-1 {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .sagar-caption-1 {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .sagar-indicator-1 {
+    width: 40px;
+    background: #b08d57;
+  }
+}
